@@ -13,7 +13,7 @@
   };
 
   let emoji = emojis[id] || "🤷‍♂️";
-  console.log(emoji);
+  // console.log(emoji);
 </script>
 
 {emoji}

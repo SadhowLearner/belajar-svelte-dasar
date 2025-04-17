@@ -2,10 +2,11 @@
   import Todo from "./lib/Todo.svelte";
   import "./app.css";
 
-  const dataTodo = $state([]);
+  let dataTodo = $state([]);
+// log the dataTodo array to the console
 
   const remove = (id) => {
-   dataTodo.filter((todo) => todo.id !== id)// remove the last element
+   dataTodo = dataTodo.filter((todo) => todo.id !== id)// remove the last element
     // remove the last element
   };
 
@@ -23,7 +24,7 @@
       completed: false,
     };
     dataTodo.push(todo);
-    input.value = ""; // add the new todo to the list// clear the input field
+    input.value = "";  // add the new todo to the list// clear the input field
   }
 </script>
 

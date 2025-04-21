@@ -12,7 +12,7 @@
     "5": "❤️‍🔥",
   };
 
-  let emoji = emojis[id] || "🤷‍♂️";
+  let emoji = emojis[id % 3] || "🤷‍♂️";
   // console.log(emoji);
 </script>
 

@@ -28,14 +28,14 @@
   }
 </script>
 
-<div class="flex flex-row justify-center gap-4 items-center my-6">
-  <button onclick={descrement} class="btn btn-soft w-fit mx-auto my-6 rounded-2xl hover:bg-orange-700 text-center align-middle">
+<div class="flex flex-row items-center justify-center gap-4 my-6">
+  <button onclick={descrement} class="mx-auto my-6 text-center align-middle btn btn-soft w-fit rounded-2xl hover:bg-orange-700">
     -
   </button>
   
-  <p class="text-center text-3xl align-baseline max-w-2xl text-wrap">{count.join(" + ")} = {total}</p>
+  <p class="max-w-2xl text-3xl text-center align-baseline text-wrap {total % 2 === 0 ? 'text-green-600' : 'text-red-600'}">{count.join(" + ")} = {total}</p>
 
-  <button onclick={increment} class="btn btn-soft w-fit mx-auto my-6 rounded-2xl hover:bg-orange-700 text-center align-middle">
+  <button onclick={increment} class="mx-auto my-6 text-center align-middle btn btn-soft w-fit rounded-2xl hover:bg-orange-700">
    +
   </button>
 </div>

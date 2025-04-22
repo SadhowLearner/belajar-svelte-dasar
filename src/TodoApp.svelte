@@ -1,6 +1,7 @@
 <script lang="ts">
   import Todo from "./lib/Todo.svelte";
   import EditTodo from "./lib/EditTodo.svelte";
+  import { fade, fly } from "svelte/transition";
   import "./app.css";
 
   let dataTodo = $state([]);
@@ -48,17 +49,22 @@
   }
 </script>
 
-<button onclick={remove} class="btn btn-danger">Remove</button>
+<!-- <button onclick={remove} class="btn btn-danger">Remove</button> -->
 
-<form class="flex flex-row gap-2 my-4">
+<form class="flex flex-row gap-2  my-4" onsubmit={add} transition:fly={{ y: 200 ,duration: 2000}}>
   <input type="text" name="todo" id="input" class="input" bind:value={input}/>
-  <button class="btn btn-warning btn-outline" onclick={add}>Tambah</button>
+  <button type="submit" class="btn btn-warning btn-outline">Tambah</button>
 </form>
 
 <ul class="list-disc list-outside">
   {#each dataTodo as todo (todo.id)}
     <!-- content here -->
-    <li class="my-4">
+    <li class="my-4" out:fly={{y: 25, duration: 500}} in:fly={{y: -20, duration: 2000}}
+      onintrostart={() => console.log("Animation started")}
+      onintroend={() => console.log("Animation ended")}
+      onoutrostart={() => console.log("Outro started")}
+      onoutroend={() => console.log("Outro ended")}
+    >
     
 
       {#if todo.edit}

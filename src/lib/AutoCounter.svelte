@@ -5,13 +5,15 @@
     let intervalId;
 
     $effect(() => {
+      
         // Set up a new interval
         intervalId = setInterval(() => {
             count++;
         }, interval);
 
-        // Cleanup function to clear the interval when the effect is re-run or destroyed
         return () => clearInterval(intervalId);
+        // Cleanup function to clear the interval when the effect is re-run or destroyed
+        
     })
 
     const incrementInterval = () => {

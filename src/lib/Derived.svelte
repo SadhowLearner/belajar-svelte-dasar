@@ -1,7 +1,8 @@
 <script>
   let count = $state(0);
   let mult = $state(1);
-  const result = $derived(count * mult);
+  let result = $derived(count * mult);
+  $inspect(result)
   const increment = () => {
     count += 1;
   };

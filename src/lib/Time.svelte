@@ -11,7 +11,7 @@ const time = (node, interval) => {
         const date = setInterval(() => {
             node.textContent = text + ' ' + new Date().toLocaleTimeString();
         }, interval);
-
+        
         return () => clearInterval(date);
     });
 }

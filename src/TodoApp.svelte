@@ -49,16 +49,8 @@
   }
 </script>
 
-<!-- <button onclick={remove} class="btn btn-danger">Remove</button> -->
 
-<form class="flex flex-row gap-2  my-4" onsubmit={add} transition:fly={{ y: 200 ,duration: 2000}}>
-  <input type="text" name="todo" id="input" class="input" bind:value={input}/>
-  <button type="submit" class="btn btn-warning btn-outline">Tambah</button>
-</form>
-
-<ul class="list-disc list-outside">
-  {#each dataTodo as todo (todo.id)}
-    <!-- content here -->
+{#snippet todoRow(todo)}
     <li class="my-4" out:fly={{y: 25, duration: 500}} in:fly={{y: -20, duration: 2000}}
       onintrostart={() => console.log("Animation started")}
       onintroend={() => console.log("Animation ended")}
@@ -87,5 +79,16 @@
         </button>
       {/if}
     </li>
+{/snippet}
+<!-- <button onclick={remove} class="btn btn-danger">Remove</button> -->
+
+<form class="flex flex-row gap-2  my-4" onsubmit={add} transition:fly={{ y: 200 ,duration: 2000}}>
+  <input type="text" name="todo" id="input" class="input" bind:value={input}/>
+  <button type="submit" class="btn btn-warning btn-outline">Tambah</button>
+</form>
+
+<ul class="list-disc list-outside">
+  {#each dataTodo as todo (todo.id)}
+   {@render todoRow(todo)}
   {/each}
 </ul>
